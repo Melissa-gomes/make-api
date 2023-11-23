@@ -12,16 +12,6 @@ var FoldersName = []string{
 	"../config",
 }
 
-// var FilesName = []string{
-// 	"../src/main.go",
-// 	"../.github/workflows/deploy.yml",
-// 	"../controllers/controller.go",
-// 	"../services/service.go",
-// 	"../repositories/repository.go",
-// 	"../domain/contracts.go",
-// 	"../config/db.go",
-// }
-
 var ContentFiles = []map[string]string{
 	{
 		"fileName": "../src/main.go",
@@ -50,5 +40,21 @@ var ContentFiles = []map[string]string{
 	{
 		"fileName": "../config/db.go",
 		"content":  `package config`,
+	},
+	{
+		"fileName": "../.env",
+		"content":  ``,
+	},
+	{
+		"fileName": "../dockerfile",
+		"content":  ``,
+	},
+	{
+		"fileName": "../docker-compose.yml",
+		"content":  ``,
+	},
+	{
+		"fileName": "makefile",
+		"content":  ``,
 	},
 }
