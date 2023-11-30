@@ -1,0 +1,37 @@
+version: "1.0"
+
+services:
+  postgres_db:
+    image: postgres:15
+
+    container_name: postgres_database
+
+    enviroment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_DATABASE}
+
+    volumes:
+      -postgres_data:/var/lib/postgresql/data
+
+    ports:
+      - "5439:5439"
+  api_service:
+    container_name: api-services
+
+    build:
+      context: .
+      target: api
+      dockerfile: Dockerfile
+
+    env_file:
+      - .env
+
+    ports:
+      - "3001:3001"
+
+    depends_on:
+      - postgres_db
+
+volumes:
+  postgres_data:

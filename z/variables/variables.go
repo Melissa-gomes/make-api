@@ -42,11 +42,15 @@ var ContentFiles = []map[string]string{
 		"content":  `package config`,
 	},
 	{
+		"fileName": "../config/environment.go",
+		"content":  `package config`,
+	},
+	{
 		"fileName": "../.env",
 		"content":  ``,
 	},
 	{
-		"fileName": "../dockerfile",
+		"fileName": "../Dockerfile",
 		"content":  ``,
 	},
 	{
