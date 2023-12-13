@@ -1,6 +1,10 @@
 package config
 
-import "os"
+import (
+	"fmt"
+	"os"
+	"strconv"
+)
 
 type Env struct {
 	APP_PORT    int
@@ -13,14 +17,21 @@ type Env struct {
 }
 
 func GetEnvs() Env {
-	appPort := 
+	appPort, err := strconv.Atoi(os.Getenv("APP_PORT"))
+	if err != nil {
+		panic(fmt.Sprintf("err to get env %s", os.Getenv("APP_PORT")))
+	}
+	dbport, err := strconv.Atoi(os.Getenv("APP_PORT"))
+	if err != nil {
+		panic(fmt.Sprintf("err to get env %s", os.Getenv("DB_PORT")))
+	}
 	return Env{
-		APP_PORT:    os.Getenv("APP_PORT"),
+		APP_PORT:    appPort,
 		DB_DATABASE: os.Getenv("DB_DATABASE"),
 		DB_USERNAME: os.Getenv("DB_USERNAME"),
 		DB_PASSWORD: os.Getenv("DB_PASSWORD"),
 		DB_SSLMODE:  os.Getenv("DB_SSLMODE"),
 		DB_HOST:     os.Getenv("DB_HOST"),
-		DB_PORT:     os.Getenv("DB_PORT"),
+		DB_PORT:     dbport,
 	}
 }
